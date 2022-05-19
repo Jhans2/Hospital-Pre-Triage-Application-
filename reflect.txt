@@ -1,0 +1,113 @@
+// ===================================================================================
+//  Project
+//  Reflection
+// ===================================================================================
+//  Student Name  : JATIN HANS
+//  Student ID    : 141560201
+//  Student Email : jhans2@myseneca.ca
+//  Course Section: ZCC
+//  Date : 30 July 2021
+// ===================================================================================
+
+This was an interesting project, we have made a Pre-Triage Application which can be used by General Hospitals to effectively maintain the records of patients.
+We can convinently store the data about when the patient is admitted and register the patients according to their purpose of visit. 
+This project was a good exercise as it made me use all the concepts together that I have learned since the begging of the course OOP244 and 
+moreover, helped me to enhance my programming skills. 
+The following are the concepts that I have learned and revised while performing this assignment:
+
+MS1:-
+It particularly taught me how to use basic arithmetic operations. In MS1 I use basic arthimetic operations using different operators to calculate the passage of time.
+Example of some operators used in Time.cpp:
+      Time& operator-=(const Time& D);
+      Time& operator+=(const Time& D);
+      Time& operator *= (unsigned int val);
+      Time& operator /= (unsigned int val);
+
+Then, I learned the way to overload insertion operator so the class can be printed using ostream and overload extraction operator so the class can be read using istream.
+	std::ostream& operator<<(std::ostream& ostr, const Time& D)
+	{
+		return D.write(ostr);
+	}
+
+	std::istream& operator>>(std::istream& istr, Time& D)
+	{
+		return D.read(istr);
+	}
+
+It also taught me how to use the C++ string class to extract an unknown number of characters from the input.
+
+*******************************************************************************************
+MS2:-
+This was the next part of our Pre-Triage Application,Here,I learned how to define pure virtual functions.The principal component of an abstract base class is a pure virtual member function. 
+Example of virtual function used from Ioable class:
+    class IOAble
+    {
+    public:
+        virtual std::ostream& csvWrite(std::ostream& ostr) const = 0;
+        virtual std::istream& csvRead(std::istream& istr) = 0;
+        virtual std::ostream& write(std::ostream& ostr) const = 0;
+        virtual std::istream& read(std::istream& istr) = 0;
+        virtual ~IOAble(){};
+    };
+
+Furthermore; I got a chance to create copy constructors and copy assignment operator.The copy constructor contains the logic for copying from a source object to a newly created 
+object of the same type,whereas copy assignment operator contains the logic for copying data from an existing object to an existing object.
+Example of copy constructor and copy assignment operator used in Menu.cpp:
+        Menu& operator=(const Menu& src);
+        Menu(const Menu& src);
+
+This two milestones made the base of the application. These functions or opertors can now used at different places to avoid duplicity and logic of same code or thing.
+
+*******************************************************************************************
+MS3:-    
+This part of workshop, focus on creation of an derived class of an abstract base class. Example of Patient derived class of Ioable abstract base class:
+    class Patient:public IOAble
+    {
+	//Contents of Patient Class
+
+    };
+
+Then, I learned how to implement behaviour using virtual functions.
+
+Furthermore; I learned how to overwrite pure virtual function. Example of overwritten functions used in Patient module of Ioable class:
+        std::ostream& csvWrite(std::ostream& ostr) const;
+        std::istream& csvRead(std::istream& istr);
+        std::ostream& write(std::ostream& ostr) const;
+        std::istream& read(std::istream& istr);
+
+At this time, I was able to differentiate between abstract base class and a concrete class.
+********************************************************************************************
+MS4:-    
+MS4 was the second last part of the assignment that teaches me how to access a shadowed member function that is defined in a base class.
+Example of accessing base class version of a member function that a derived class version has shadowed:
+
+    Patient::csvRead(istr);
+*********************************************************************************************
+MS5:-
+MS5 is the final part of the assignment that focus on the implementation of the remaining functions and templates.
+Template involves writing code in a way that is independent of any particular type. In simple words,It is a blueprint or formula for creating a generic class or a function. 
+Example of template used in utils.h:
+
+   template <typename type>
+   void removeDynamicElement(type* array[], int index, int& size) {
+      delete array[index];
+      for (int j = index; j < size; j++) {
+         array[j] = array[j + 1];
+      }
+      size--;
+   }
+
+I also got a chance to learn how to implement calls to function templates. A call to a templated function determines the specialization that the compiler generates.
+The compiler binds the call to that specialization. Example of call to removeDynamicElement function templates in PreTriage.cpp:
+
+   removeDynamicElement<Patient>(m_lineup, index, m_lineupSize);
+
+I also got a chance to familiar with input/output operators and objects.
+**********************************************************************************************
+My overall Experience was very good in OOP244 subject in this semester. Earlier this semester, I was thinking that switching from C to C++ will be difficult, 
+but when I started to learn C++, it was not as difficult as I was assuming, as C is the base of C++ programming language. OOP244 subject helped me to learn almost every concept of C++ 
+which is needed in a good C++ programmer. Moreover, I became familiar with Object Oriented programming. However, my concepts of virtul function and abstract base class are not that strong.
+I am working on it and I aim to learn it properly before the third semester begins. Lab sessions were very helpful as my professor expained the workshops and projects in an efficient 
+manner. I am very grateful to my professor for teaching me so well. This was my overall experience in this course.
+ 
+
